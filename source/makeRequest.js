@@ -27,6 +27,7 @@ function makeCorsRequest() {
       let responseStr = xhr.responseText;  // get the JSON string
       let object = JSON.parse(responseStr);  // turn it into an object
       console.log(JSON.stringify(object, undefined, 2));  // print it out as a string, nicely formatted
+      return object;
   };
 
   xhr.onerror = function() {
@@ -39,9 +40,11 @@ function makeCorsRequest() {
 
 function getIcon() {
     let json = makeCorsRequest();
-    json = json.list[0].weather[0].main;
-    switch (json) {
+    main = json.list[0].weather[0].main;
+    switch (main) {
       case null:
+        main_img1.src = "../assets/clear-night.svg";
+        main_img2.src = "../assets/clear-night.svg";
         break;
 
       // default = clear

@@ -40,6 +40,9 @@ section.top-left {
   font-family: Noto Sans KR;
   font-size: 15px;
   color: white;
+
+  margin: 0px;
+  margin-right: 10px;
 }
 
 #search-section {
@@ -82,13 +85,17 @@ div.temperature {
   font-size: 35px;
 }
 
+.top .top-left button {
+  background: linear-gradient(rgb(126, 137, 203), rgb(99, 108, 191));
+}
+
 /* mobile if condition passes */
-@media only screen and (max-width : 440px) {
+@media only screen and (max-width : 320px) {
   #Local {
-    font-size: 32px;
+    font-size: 20px;
   }
   #Northern {
-    font-size: 17px;
+    font-size: 9px;
   }
   section.MOBILE-current-weather {
     display: flex;

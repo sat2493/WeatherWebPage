@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="forecast.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <script src="makeRequest.js"></script>
   </head>
 
   <body>
@@ -20,8 +19,10 @@
         <div id="search-section">
           <p id="Forecast">Forecast for</p>
           <div id="search-bar">
-            <!-- search bar goes here -->
-            <button type="button" name="button">submit</button>
+            <form>
+              <input type="text" placeholder="Davis, CA" name="search">
+              <button type="submit">submit</button>
+            </form>
           </div>
         </div>
 
@@ -64,4 +65,5 @@
     <section class="bottom">
     </section>
   </body>
+  <script src="makeRequest.js"> </script>
 </html>
