@@ -1,0 +1,67 @@
+<!doctype HTML>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="forecast.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <script src="makeRequest.js"></script>
+  </head>
+
+  <body>
+    <section class="top">
+
+      <section class="top-left">
+        <p id="Local">Local Weather Six Hour Forecast</p>
+        <p id="Northern">Northern California with doppler radar</p>
+        <div id="search-section">
+          <p id="Forecast">Forecast for</p>
+          <div id="search-bar">
+            <!-- search bar goes here -->
+            <button type="button" name="button">submit</button>
+          </div>
+        </div>
+
+        <!-- have css set display on for mobile -->
+        <section class="MOBILE-current-weather">
+          <!-- i'll use any img for now.. have java encode the right path based on weather -->
+          <img id="main-img1" src="" alt="Weather Icon" onload="getIcon()">
+          <section class="below-main">
+            <div class="time">
+              <p id="current-mobile">current</p>
+              <p id="time-mobile">99PM</p>
+            </div>
+            <div id="divider-mobile"> | </div>
+            <div class=""></div>
+            <div class="temperature">
+              <p id="temperature-mobile">99°</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- have css set display on for web -->
+        <section class="WEB-current-weather">
+          <div class="time">
+            <p id="current-web">current</p>
+            <p id="time-web">99PM</p>
+          </div>
+          <img id="main-img2" src="" alt="Weather Icon" onload="getIcon()">
+          <div class="temperature">
+            <p id="temperature-web">99°</p>
+          </div>
+        </section>
+
+      </section>
+
+      <section class="top-right">
+        <!-- radar goes here -->
+      </section>
+
+    </section>
+    <section class="bottom">
+    </section>
+  </body>
+</html>
