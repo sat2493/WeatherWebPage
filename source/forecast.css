@@ -63,6 +63,16 @@ section.WEB-current-weather {
   flex-direction: row;
   margin-left: 20px;
 }
+
+#main-img2 {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#main-img2 {
+  width: 10%;
+}
+
 div.time {
   display: flex;
   flex-direction: column;

@@ -9,10 +9,12 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
+
+
 // Make the actual CORS request.
 function makeCorsRequest() {
 
-   let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=d017b8685a8172e69756f9eb3747c26a"
+  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=d017b8685a8172e69756f9eb3747c26a"
 
   let xhr = createCORSRequest('GET', url);
 
@@ -26,8 +28,73 @@ function makeCorsRequest() {
   xhr.onload = function() {
       let responseStr = xhr.responseText;  // get the JSON string
       let object = JSON.parse(responseStr);  // turn it into an object
-      console.log(JSON.stringify(object, undefined, 2));  // print it out as a string, nicely formatted
-      return object;
+      //console.log(object.list[0].weather[0].main);
+      weather = object.list[16].weather[0].description;
+      time = new Date(object.list[16].dt_txt);
+      let main_img1 = document.getElementById("main-img1");
+      let main_img2 = document.getElementById("main-img2");
+
+      switch (weather) {
+        case "scattered clouds":
+          main_img1.src = "../assets/scatteredclouds.svg";
+          main_img2.src = "../assets/scatteredclouds.svg";
+          break;
+
+        case "broken clouds":
+          main_img1.src = "../assets/brokencloud.svg";
+          main_img2.src = "../assets/brokencloud.svg";
+          break;
+
+        case "few clouds":
+          if (time.getHours() < 6 || time.getHours > 18) {
+            main_img1.src = "../assets/fewclouds-night.svg";
+            main_img2.src = "../assets/fewclouds-day.svg";
+          } else {
+            main_img1.src = "../assets/clearsky.svg";
+            main_img2.src = "../assets/clearsky.svg";
+          }
+          break;
+
+        case "mist":
+          main_img1.src = "../assets/mist.svg";
+          main_img2.src = "../assets/mist.svg";
+          break;
+
+        case "clear sky":
+          if (time.getHours() < 6 || time.getHours > 18) {
+            main_img1.src = "../assets/clear-night.svg";
+            main_img2.src = "../assets/clear-night.svg";
+          } else {
+            main_img1.src = "../assets/clearsky.svg";
+            main_img2.src = "../assets/clearsky.svg";
+          }
+          break;
+
+        case "shower rain":
+          main_img1.src = "../assets/showerrain.svg";
+          main_img2.src = "../assets/showerrain.svg";
+          break;
+
+        case "thunderstorm":
+          main_img1.src = "../assets/showerrain.svg";
+          main_img2.src = "../assets/showerrain.svg";
+          break;
+
+        case "snow":
+          main_img1.src = "../assets/snow.svg";
+          main_img2.src = "../assets/snow.svg";
+          break;
+
+        default:
+          if (time.getHours() < 6 || time.getHours > 18) {
+            main_img1.src = "../assets/rain-night.svg";
+            main_img2.src = "../assets/rain-night.svg";
+          } else {
+            main_img1.src = "../assets/rain-day.svg";
+            main_img2.src = "../assets/rain-day.svg";
+          }
+          break;
+      }
   };
 
   xhr.onerror = function() {
@@ -38,33 +105,5 @@ function makeCorsRequest() {
   xhr.send();
 }
 
-function getIcon() {
-    let json = makeCorsRequest();
-    main = json.list[0].weather[0].main;
-    switch (main) {
-      case null:
-        main_img1.src = "../assets/clear-night.svg";
-        main_img2.src = "../assets/clear-night.svg";
-        break;
-
-      // default = clear
-      default:
-        let date = Date(json.list[0].dt_txt);
-        if (date.getHours() < 12) {
-          // write daytime svg
-          let main_img1 = document.getElementById("main-img1");
-          let main_img2 = document.getElementById("main-img2");
-          main_img1.src = "../assets/clear-night.svg";
-          main_img2.src = "../assets/clear-night.svg";
-        } else {
-          // write nighttime svg
-          let main_img1 = document.getElementById("main-img1");
-          let main_img2 = document.getElementById("main-img2");
-          main_img1.src = "../assets/clearsky.svg";
-          main_img2.src = "../assets/clearsky.svg";
-        }
-
-    }
-}
-
-getIcon();
+// run this code to make request when this script file gets executed
+makeCorsRequest();

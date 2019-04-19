@@ -29,7 +29,7 @@
         <!-- have css set display on for mobile -->
         <section class="MOBILE-current-weather">
           <!-- i'll use any img for now.. have java encode the right path based on weather -->
-          <img id="main-img1" src="" alt="Weather Icon" onload="getIcon()">
+          <img id="main-img1" src="" alt="Weather Icon" onload="makeCorsRequest()">
           <section class="below-main">
             <div class="time">
               <p id="current-mobile">current</p>
@@ -49,7 +49,7 @@
             <p id="current-web">current</p>
             <p id="time-web">99PM</p>
           </div>
-          <img id="main-img2" src="" alt="Weather Icon" onload="getIcon()">
+          <img id="main-img2" src="" alt="Weather Icon" onload="makeCorsRequest()">
           <div class="temperature">
             <p id="temperature-web">99°</p>
           </div>
