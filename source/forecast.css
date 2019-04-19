@@ -1,4 +1,5 @@
 body {
+  margin: 0px;
 }
 
 section.top {
@@ -16,6 +17,7 @@ section.top-left {
   flex-direction: column;
 
   margin: 60px;
+  margin-bottom: 0px;
 }
 
 #Local {
@@ -135,4 +137,30 @@ div.temperature {
     font-size: 35px;
     margin: 0px;
   }
+}
+
+
+
+section.bottom {
+  display: flex;
+  justify-content: center;
+}
+
+div.future-weather {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  font-family: 'Open Sans Condensed';
+}
+
+p.time {
+  font-size: 12px;
+}
+
+img.bottomIcon {
+  width: 30%;
+}
+
+p.temperature-bottom {
+  font-size: 35px;
 }
