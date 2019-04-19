@@ -139,6 +139,27 @@ div.temperature {
   }
 }
 
+div.radar {
+  clip-path: circle(190px at center);
+}
+
+#map {
+  z-index: 100;
+}
+
+#blue {
+  z-index: 200;
+  top: -0px;
+  position: absolute;
+}
+
+#cities {
+  z-index: 300;
+
+  top: -0px;
+  position: absolute;
+}
+
 
 
 section.bottom {
