@@ -1,11 +1,165 @@
-body {
+html, body {
+    margin: 0;
+    height: 100%;
 }
 
-section.top {
-  /* default */
+.header {
   background: rgb(73, 138, 220);
-  /* nicer gradient */
   background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
+  display: flex;
+  flex-direction: row;
+}
+
+.weather-search {
+  flex: 0 0 60%;
+}
+
+#local {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: white;
+  font-size: 45px;
+}
+
+#northern {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: rgb(52, 58, 154);
+  font-size: 33px;
+}
+
+#forecast {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 22px;
+  color: white;
+  margin: 0px;
+  margin-right: 10px;
+}
+
+#search-section {
+  display: flex;
+  flex-direction: row;
+}
+
+#search-text-box {
+  font-size: 20px;
+  font-weight: lighter;
+  width: 305px;
+  height: 30px;
+}
+
+::placeholder { color: white; text-indent: 20px;}
+
+input[type="text"], textarea {
+  background-color: rgb(52, 58, 154);
+  border: none;
+  size: 300;
+}
+
+#submit-button {
+  background: #abacd4;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  width: 80px;
+  height: 30px;
+}
+
+.time-and-temperature {
+  display: flex;
+  flex-direction: row;
+}
+
+#main-img {
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 10%;
+}
+
+.time-and-temperature .time
+#current-web, #time-web {
+  font-family: 'Saira Extra Condensed';
+  font-size: 35px;
+  font-weight: lighter;
+  color: white;
+}
+
+.time-and-temperature #temperature-web {
+  font-family: 'Saira Extra Condensed';
+  font-size: 85px;
+  font-weight: lighter;
+  color: white;
+}
+
+.weather-map { flex: 0 0 40%; }
+
+.subheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* .subheader > .time-and-temperature {
+  border-right: 1px solid #000;
+}
+
+.subheader > .time-and-temperature:last-child {
+   border: none;
+} */
+
+.subheader .time-and-temperature {
+  display: flex;
+  flex-direction: column;
+}
+
+.subheader .time-and-temperature .time-web {
+  font-family: 'Saira Extra Condensed';
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+.subheader .time-and-temperature .temperature-web {
+  font-family: 'Saira Extra Condensed';
+  font-size: 75px;
+  font-weight: lighter;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* section.top { */
+  /* default */
+  /* background: rgb(73, 138, 220); */
+  /* nicer gradient */
+  /* background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
 
   display: flex;
   justify-content: center;
@@ -16,91 +170,84 @@ section.top-left {
   flex-direction: column;
 
   margin: 60px;
-}
+} */
 
-#Local {
+/* #Local {
   font-family: Noto Sans KR;
   color: white;
-
   margin: 0px;
+  font-size: 45px;
+} */
 
-  font-size: 34px;
-}
-
-#Northern {
+/* #Northern {
   font-family: Noto Sans KR;
   color: rgb(52, 58, 154);
-
   margin: 0px;
+  font-size: 33px;
+} */
 
-  font-size: 23px;
-}
-
-#Forecast {
-  font-family: Noto Sans KR;
-  font-size: 15px;
+/* #Forecast {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 22px;
   color: white;
-
   margin: 0px;
   margin-right: 10px;
-}
+} */
 
-#search-section {
+/* #search-section {
   display: flex;
   flex-direction: row;
-}
+} */
+
+/* #search-text-box {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+} */
+
+/* #submit-button {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+} */
 
 /* webpage is default */
 
-section.MOBILE-current-weather {
+/* section.MOBILE-current-weather {
   display: none;
-}
-section.WEB-current-weather {
+} */
+/* section.WEB-current-weather {
   font-family: 'Open Sans Condensed';
   color: white;
-
   display: flex;
   flex-direction: row;
   margin-left: 20px;
-}
+} */
 
-#main-img2 {
-  margin-right: 20px;
-  margin-left: 20px;
-}
 
-#main-img2 {
-  width: 10%;
-}
-
-div.time {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-div.temperature {
+/* div.temperature {
   margin: 0px;
-}
+} */
 
-#current-web {
+/* #current-web {
   margin: 0px;
 }
 
 #time-web {
   margin: 0px;
-}
+} */
 
-#temperature-web {
-  font-size: 35px;
-}
+/* #temperature-web {
+  font-family: 'Saira Extra Condensed';
+  font-size: 85px;
+  font-weight: lighter;
+} */
 
-.top .top-left button {
+/* .top .top-left button {
   background: linear-gradient(rgb(126, 137, 203), rgb(99, 108, 191));
-}
+} */
 
 /* mobile if condition passes */
-@media only screen and (max-width : 320px) {
+/* @media only screen and (max-width : 320px) {
   #Local {
     font-size: 20px;
   }
@@ -135,4 +282,4 @@ div.temperature {
     font-size: 35px;
     margin: 0px;
   }
-}
+} */

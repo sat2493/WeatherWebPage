@@ -4,66 +4,118 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="forecast.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
   </head>
 
   <body>
-    <section class="top">
 
-      <section class="top-left">
-        <p id="Local">Local Weather Six Hour Forecast</p>
-        <p id="Northern">Northern California with doppler radar</p>
-        <div id="search-section">
-          <p id="Forecast">Forecast for</p>
-          <div id="search-bar">
-            <form>
-              <input type="text" placeholder="Davis, CA" name="search">
-              <button type="submit">submit</button>
-            </form>
+    <div class="header">
+      <div class="weather-search">
+
+        <div class="forecast-search">
+           <p id="local">Local Weather Six Hour Forecast</p>
+           <p id="northern">Northern California with doppler radar</p>
+           <div id="search-section">
+             <p id="forecast">Forecast for</p>
+             <div id="search-bar">
+               <input id="search-text-box" type="text" placeholder="Davis, CA" name="search">
+               <button id="submit-button" type="submit" onClick="makeCorsRequest();">submit</button>
+             </div>
+           </div>
+        </div>
+
+        <div class="time-and-temperature">
+          <div class="time">
+            <p id="current-web">current</p>
+            <p id="time-web">12PM</p>
+          </div>
+          <img id="main-img" src="../assets/fewclouds-day.svg" alt="Weather Icon">
+          <div class="temperature">
+            <p id="temperature-web">67°</p>
           </div>
         </div>
 
-        <!-- have css set display on for mobile -->
-        <section class="MOBILE-current-weather">
-          <!-- i'll use any img for now.. have java encode the right path based on weather -->
-          <img id="main-img1" src="" alt="Weather Icon" onload="makeCorsRequest()">
-          <section class="below-main">
-            <div class="time">
-              <p id="current-mobile">current</p>
-              <p id="time-mobile">99PM</p>
-            </div>
-            <div id="divider-mobile"> | </div>
-            <div class=""></div>
-            <div class="temperature">
-              <p id="temperature-mobile">99°</p>
-            </div>
-          </section>
-        </section>
+      </div>
 
-        <!-- have css set display on for web -->
-        <section class="WEB-current-weather">
-          <div class="time">
-            <p id="current-web">current</p>
-            <p id="time-web"></p>
-          </div>
-          <img id="main-img2" src="" alt="Weather Icon" onload="makeCorsRequest()">
-          <div class="temperature">
-            <p id="temperature-web">99°</p>
-          </div>
-        </section>
+      <div class="weather-map" style="background-color: pink;">
+        helloo
+      </div>
+    </div>
 
-      </section>
+<!-- <div class="" style="display: flex; flex-direction: row;">
+  <img class="main-img" src="../assets/brokencloud.svg" alt="brokencloud">
+  <img class="main-img" src="../assets/clear-night.svg" alt="clear-night">
+  <img class="main-img" src="../assets/clearsky.svg" alt="clearsky">
+  <img class="main-img" src="../assets/fewclouds-day.svg" alt="fewclouds-day">
+  <img class="main-img" src="../assets/fewclouds-night.svg" alt="fewclouds-night">
+  <img class="main-img" src="../assets/mist.svg" alt="mist">
+  <img class="main-img" src="../assets/rain-day.svg" alt="rain-day">
+  <img class="main-img" src="../assets/rain-night.svg" alt="rain-night">
+  <img class="main-img" src="../assets/scatteredclouds.svg" alt="scatteredclouds">
+  <img class="main-img" src="../assets/showerrain.svg" alt="showerrain">
+  <img class="main-img" src="../assets/snow.svg" alt="snow">
+  <img class="main-img" src="../assets/thunderstorms.svg" alt="thunderstorm">
+</div> -->
 
-      <section class="top-right">
-        <!-- radar goes here -->
-      </section>
+    <div class="subheader">
+      <div class="time-and-temperature">
+        <div class="time">
+          <p class="time-web">1:00 PM</p>
+        </div>
+        <img class="main-img" src="../assets/brokencloud.svg" alt="Weather Icon">
+        <div class="temperature">
+          <p class="temperature-web">67°</p>
+        </div>
+      </div>
 
-    </section>
+      <div class="time-and-temperature">
+        <div class="time">
+          <p class="time-web">2:00 PM</p>
+        </div>
+        <img class="main-img" src="../assets/showerrain.svg" alt="Weather Icon">
+        <div class="temperature">
+          <p class="temperature-web">68°</p>
+        </div>
+      </div>
+
+      <div class="time-and-temperature">
+        <div class="time">
+          <p class="time-web">3:00 PM</p>
+        </div>
+        <img class="main-img" src="../assets/fewclouds-day.svg" alt="Weather Icon">
+        <div class="temperature">
+          <p class="temperature-web">70°</p>
+        </div>
+      </div>
+
+      <div class="time-and-temperature">
+        <div class="time">
+          <p class="time-web">4:00 PM</p>
+        </div>
+        <img class="main-img" src="../assets/clearsky.svg" alt="Weather Icon">
+        <div class="temperature">
+          <p class="temperature-web">70°</p>
+        </div>
+      </div>
+
+      <div class="time-and-temperature">
+        <div class="time">
+          <p class="time-web">5:00 PM</p>
+        </div>
+        <img class="main-img" src="../assets/clearsky.svg" alt="Weather Icon">
+        <div class="temperature">
+          <p class="temperature-web">71°</p>
+        </div>
+      </div>
+    </div>
+
     <section class="bottom">
     </section>
+
   </body>
   <script src="makeRequest.js"> </script>
 </html>

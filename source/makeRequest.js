@@ -106,8 +106,20 @@ function loadTemperature(temperature) {
 
 // Make the actual CORS request.
 function makeCorsRequest() {
+  var city = document.getElementById('search-text-box').value;
 
-  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=d017b8685a8172e69756f9eb3747c26a"
+  console.log(!isNaN(city));
+
+  if(isNaN(city)){ //not a number
+    var api = 'http://api.openweathermap.org/data/2.5/forecast/hourly?q=';
+    console.log('city = ' + city);
+  } else {
+    var api = 'http://api.openweathermap.org/data/2.5/forecast/hourly?zip=';
+    console.log('zip code = ' + city);
+  }
+
+  var key = '&units=imperial&APPID=2b950a4430a34b6d1dfa6010d8599df8';  //apikey before = 'Davis,CA,US'
+  var url = api + city + ',US' + key;
 
   let xhr = createCORSRequest('GET', url);
 
@@ -121,13 +133,17 @@ function makeCorsRequest() {
   xhr.onload = function() {
       let responseStr = xhr.responseText;  // get the JSON string
       let object = JSON.parse(responseStr);  // turn it into an object
-      //console.log(object.list[0].weather[0].main);
-      weather = object.list[16].weather[0].description;
-      time = new Date(object.list[16].dt_txt);
-      temperature = object.list[16].main.temp;
-      loadMainIcon(weather, time);
-      loadTime(time);
-      loadTemperature(temperature);
+      console.log(JSON.stringify(object, undefined, 2));
+
+      console.log(object.city.name);
+      console.log(object.list[0].weather[0].description);
+      console.log(object.list[0].dt_txt);
+      console.log(object.list[0].main.temp);
+
+      //var temp = object.list[0].main.temp;
+      let temp = document.getElementById("temperature-web");
+      temp.textContent = object.list[0].main.temp
+
   };
 
   xhr.onerror = function() {
@@ -137,6 +153,3 @@ function makeCorsRequest() {
   // Actually send request to server
   xhr.send();
 }
-
-// run this code to make request when this script file gets executed
-makeCorsRequest();
