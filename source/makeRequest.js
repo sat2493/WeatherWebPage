@@ -9,7 +9,19 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
-function loadMainIcon(weather, time) {
+// adjusts to PST
+function convertTime(time) {
+  let hour = time.getHours();
+  hour += 16;
+  // if we receive a case of 25:00 or greater, adjust
+  if (hour > 24) {
+    hour -= 24;
+  }
+
+  return hour;
+}
+
+function loadMainIcon(weather, convertedTime) {
   let main_img1 = document.getElementById("main-img1");
   let main_img2 = document.getElementById("main-img2");
 
@@ -25,7 +37,7 @@ function loadMainIcon(weather, time) {
       break;
 
     case "few clouds":
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedTime < 6 || convertedTime > 18) {
         main_img1.src = "../assets/fewclouds-night.svg";
         main_img2.src = "../assets/fewclouds-day.svg";
       } else {
@@ -40,7 +52,7 @@ function loadMainIcon(weather, time) {
       break;
 
     case "clear sky":
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedTime < 6 || convertedTime > 18) {
         main_img1.src = "../assets/clear-night.svg";
         main_img2.src = "../assets/clear-night.svg";
       } else {
@@ -65,7 +77,7 @@ function loadMainIcon(weather, time) {
       break;
 
     default:
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedTime < 6 || convertedTime > 18) {
         main_img1.src = "../assets/rain-night.svg";
         main_img2.src = "../assets/rain-night.svg";
       } else {
@@ -76,14 +88,16 @@ function loadMainIcon(weather, time) {
   }
 }
 
-function loadTime(time) {
-  let hour = time.getHours();
+function loadTime(convertedTime) {
+  let hour = convertedTime;
   let ampm = "AM";
 
   // adjust if necessary
-  if (time.getHours() >= 12) {
+  if (convertedTime >= 12) {
     hour -= 12;
     ampm = "PM";
+  } else if (convertedTime == 0) {
+    hour += 12;
   }
   timeOfDay = hour + ampm;
 
@@ -104,7 +118,7 @@ function loadTemperature(temperature) {
   temperature_mobile.innerHTML = temp + "°";
 }
 
-function loadFutureIcons (futureWeather, time, i) {
+function loadFutureIcons (futureWeather, convertedFutureTime, i) {
   let id = "main-img" + i;
   console.log(futureWeather);
   console.log(id);
@@ -120,7 +134,7 @@ function loadFutureIcons (futureWeather, time, i) {
       break;
 
     case "few clouds":
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedFutureTime < 6 || convertedFutureTime > 18) {
         main_img.src = "../assets/fewclouds-night.svg";
       } else {
         main_img.src = "../assets/clearsky.svg";
@@ -132,7 +146,7 @@ function loadFutureIcons (futureWeather, time, i) {
       break;
 
     case "clear sky":
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedFutureTime < 6 || convertedFutureTime > 18) {
         main_img.src = "../assets/clear-night.svg";
       } else {
         main_img.src = "../assets/clearsky.svg";
@@ -152,7 +166,7 @@ function loadFutureIcons (futureWeather, time, i) {
       break;
 
     default:
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedFutureTime < 6 || convertedFutureTime > 18) {
         main_img.src = "../assets/rain-night.svg";
       } else {
         main_img.src = "../assets/rain-day.svg";
@@ -191,7 +205,7 @@ function loadFutureTemperature(futureTemperature, i) {
 // Make the actual CORS request.
 function makeCorsRequest() {
 
-  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=d017b8685a8172e69756f9eb3747c26a"
+  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=xxx"
 
   let xhr = createCORSRequest('GET', url);
 
@@ -206,22 +220,25 @@ function makeCorsRequest() {
       let responseStr = xhr.responseText;  // get the JSON string
       let object = JSON.parse(responseStr);  // turn it into an object
       console.log(object.list[0].weather[0].main);
-      let weather = object.list[16].weather[0].description;
-      let time = new Date(object.list[16].dt_txt);
-      let temperature = object.list[16].main.temp;
+      let weather = object.list[0].weather[0].description;
+      let temperature = object.list[0].main.temp;
+      let time = new Date(object.list[0].dt_txt);
+      // convert time
+      let convertedTime = convertTime(time);
 
-      loadMainIcon(weather, time);
-      loadTime(time);
+      loadMainIcon(weather, convertedTime);
+      loadTime(convertedTime);
       loadTemperature(temperature);
 
       let futureDays = 5;
       for (i = 1, count = 0; count < futureDays; i++, count++) {
-        let futureWeather = object.list[16 + i].weather[0].description;
-        let futureTime = new Date(object.list[16 + i].dt_txt);
-        let futureTemperature = object.list[16 + i].main.temp;
+        let futureWeather = object.list[0 + i].weather[0].description;
+        let futureTemperature = object.list[o + i].main.temp;
+        let futureTime = new Date(object.list[0 + i].dt_txt);
+        let convertedFutureTime = convertTime(futureTime);
 
-        loadFutureIcons(futureWeather, time, i + 2);
-        loadFutureTime(futureTime, i);
+        loadFutureIcons(futureWeather, convertedFutureTime, i + 2);
+        loadFutureTime(convertedFutureTime, i);
         loadFutureTemperature(futureTemperature, i);
       }
   };

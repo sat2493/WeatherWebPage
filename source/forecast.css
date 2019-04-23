@@ -210,8 +210,21 @@ p.temperature-bottom {
   section.bottom {
     display: none;
   }
-  @keyframes slideUp {
+  /*#buttonDiv {
+    animation-name: slideUp;
+  	animation-duration: 3s;
+  	animation-fill-mode: none;
+  }*/
+  /*@keyframes slideUp {
     from { background-color: #661199; }
   	to { background-color: #116699; }
+  }*/
+  #bottom {
+    position: absolute;
+    top: 300%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
   }
 }
