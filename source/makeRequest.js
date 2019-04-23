@@ -176,11 +176,11 @@ function loadFutureIcons (futureWeather, convertedFutureTime, i) {
 }
 
 function loadFutureTime(futureTime, i) {
-  let hour = futureTime.getHours();
+  let hour = futureTime;
   let ampm = "AM";
 
   // adjust if necessary
-  if (futureTime.getHours() >= 12) {
+  if (futureTime >= 12) {
     hour -= 12;
     ampm = "PM";
   }
@@ -205,7 +205,7 @@ function loadFutureTemperature(futureTemperature, i) {
 // Make the actual CORS request.
 function makeCorsRequest() {
 
-  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=xxx"
+  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=d017b8685a8172e69756f9eb3747c26a"
 
   let xhr = createCORSRequest('GET', url);
 
@@ -233,7 +233,7 @@ function makeCorsRequest() {
       let futureDays = 5;
       for (i = 1, count = 0; count < futureDays; i++, count++) {
         let futureWeather = object.list[0 + i].weather[0].description;
-        let futureTemperature = object.list[o + i].main.temp;
+        let futureTemperature = object.list[0 + i].main.temp;
         let futureTime = new Date(object.list[0 + i].dt_txt);
         let convertedFutureTime = convertTime(futureTime);
 
