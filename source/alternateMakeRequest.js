@@ -255,7 +255,7 @@ function makeCorsRequest() {
 makeCorsRequest();
 
 var mintop = 5;
-var maxtop = -250;
+var maxtop = 1000;
 var time = 1000;
 var timer = null;
 var toggled = false;
@@ -264,20 +264,20 @@ var toggled = false;
 window.onload = function() {
   var upButton = document.getElementById('toggleThis');
   var downButton = document.getElementById('toggleThat');
-  var top = document.getElementById('body');
-  var bottom = document.getElementById('body');
+  var top = document.getElementById('top');
+  var bottom = document.getElementById('bottom');
   upButton.onclick = function() {
     clearInterval(timer);
     bottom.style.display = "flex";
     var instancetop = parseInt(bottom.style.top);
     var init = (new Date()).getTime();
-    var top = (toggled = !toggled) ? maxtop : mintop;
+    var top = mintop;
     var disp = top - parseInt(bottom.style.top);
 
     timer = setInterval(function() {
       var instance = (new Date()).getTime() - init;
       if (instance <= time) {
-        var pos = instancetop + Math.floor(disp * instance / time);
+        var pos = instancetop + Math.floor(disp * instance / time);;
         bottom.style.top = pos + "px";
       } else {
         bottom.style.top = top + "px";
@@ -297,7 +297,7 @@ window.onload = function() {
     timer = setInterval(function() {
       var instance = (new Date()).getTime() - init;
       if (instance <= time) {
-        var pos = instancetop + Math.floor(disp * instance / time);
+        var pos = instancetop + Math.floor(disp * instance / time);;
         bottom.style.top = pos + "px";
       } else {
         bottom.style.top = top + "px";

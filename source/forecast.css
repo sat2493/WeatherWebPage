@@ -1,5 +1,8 @@
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0px;
+  position: absolute;
 }
 
 section.top {
@@ -207,24 +210,6 @@ p.temperature-bottom {
   #stats {
     display: flex;
   }
-  section.bottom {
-    display: none;
-  }
-  /*#buttonDiv {
-    animation-name: slideUp;
-  	animation-duration: 3s;
-  	animation-fill-mode: none;
-  }*/
-  /*@keyframes slideUp {
-    from { background-color: #661199; }
-  	to { background-color: #116699; }
-  }*/
   #bottom {
-    position: absolute;
-    top: 300%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 500;
   }
 }

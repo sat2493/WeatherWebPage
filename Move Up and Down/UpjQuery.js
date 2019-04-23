@@ -4,7 +4,7 @@ var time = 1000;
 var timer = null;
 var toggled = false;
 
-// from: https://stackoverflow.com/questions/3795481/javascript-slidedown-without-jquery 
+// from: https://stackoverflow.com/questions/3795481/javascript-slidedown-without-jquery
 window.onload = function() {
   var controller = document.getElementById('toggleThis');
   var content = document.getElementById('content')
@@ -25,6 +25,7 @@ window.onload = function() {
       } else {
         content.style.top = top + "px";
         clearInterval(timer);
+        controller.value = toggled ? 'Click Here' : 'Click Here Again';
       }
     }, 1);
 

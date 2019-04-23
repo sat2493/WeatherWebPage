@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
   </head>
 
-  <body>
+  <body id="body">
     <section class="top" id="top">
 
       <section class="top-left">
@@ -40,7 +40,7 @@
                 <p id="temperature-mobile">99°</p>
               </div>
             </div>
-            <p id="buttonDiv" onClick="slideUp()" id="More">⌃</p>
+            <input type="button" id="toggleThis" value="⌃">
           </section>
         </section>
 
@@ -68,7 +68,7 @@
 
     </section>
     <section class="bottom" id="bottom">
-      <p onClick="readMore()" id="Less">﹀</p>
+    </p><input type="button" id="toggleThat" value="﹀">
       <div class="future-weather">
         <p class="time" id="time1">9:99 pm</p>
         <img class="bottomIcon" id="main-img3" src="../assets/scatteredclouds.svg" alt="Weather Icon" onload="makeCorsRequest()">
