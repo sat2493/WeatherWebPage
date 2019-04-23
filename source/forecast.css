@@ -99,44 +99,8 @@ div.temperature {
 
 .top .top-left button {
   background: linear-gradient(rgb(126, 137, 203), rgb(99, 108, 191));
-}
-
-/* mobile if condition passes */
-@media only screen and (max-width : 320px) {
-  #Local {
-    font-size: 20px;
-  }
-  #Northern {
-    font-size: 9px;
-  }
-  section.MOBILE-current-weather {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Open Sans Condensed';
-  }
-  section.WEB-current-weather {
-    display: none;
-  }
-  section.below-main {
-    display: flex;
-    color: white;
-  }
-  #current-mobile {
-    margin: 0px;
-  }
-  #time-mobile {
-    margin: 0px;
-  }
-  #divider-mobile {
-    color: black;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 35px;
-  }
-  #temperature-mobile {
-    font-size: 35px;
-    margin: 0px;
-  }
+  border: 0px;
+  color: white;
 }
 
 div.radar {
@@ -184,4 +148,70 @@ img.bottomIcon {
 
 p.temperature-bottom {
   font-size: 35px;
+}
+
+/* mobile if condition passes */
+@media only screen and (max-width : 320px) {
+  #Local {
+    font-size: 16px;
+  }
+  #Northern {
+    font-size: 7.1px;
+    margin-bottom: 6px;
+  }
+  #Forecast {
+    font-size: 9px;
+  }
+  section.MOBILE-current-weather {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans Condensed';
+  }
+  #search-section {
+    display: flex;
+    flex-direction: column;
+  }
+  section.WEB-current-weather {
+    display: none;
+  }
+  section.below-main {
+    display: flex;
+    color: white;
+  }
+  #current-mobile {
+    margin: 0px;
+  }
+  #time-mobile {
+    margin: 0px;
+  }
+  #divider-mobile {
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 35px;
+  }
+  #temperature-mobile {
+    font-size: 35px;
+    margin: 0px;
+  }
+  section.bottom {
+    flex-direction: column;
+  }
+  section.top-right {
+    display: none;
+  }
+  section.below-main {
+    display: flex;
+    flex-direction: column;
+  }
+  #stats {
+    display: flex;
+  }
+  section.bottom {
+    display: none;
+  }
+  @keyframes slideUp {
+    from { background-color: #661199; }
+  	to { background-color: #116699; }
+  }
 }
