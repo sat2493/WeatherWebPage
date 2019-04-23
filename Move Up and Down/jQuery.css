@@ -1,0 +1,13 @@
+#toggleThis {
+  background: red;
+}
+
+#block {
+  margin: 1000px;
+  background: green;
+}
+
+#content {
+  background: yellow;
+  position: absolute;
+}
