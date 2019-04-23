@@ -205,7 +205,7 @@ function loadFutureTemperature(futureTemperature, i) {
 // Make the actual CORS request.
 function makeCorsRequest() {
 
-  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=xxx"
+  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=d017b8685a8172e69756f9eb3747c26a"
 
   let xhr = createCORSRequest('GET', url);
 
