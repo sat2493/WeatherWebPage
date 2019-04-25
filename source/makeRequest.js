@@ -9,102 +9,183 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
-function loadMainIcon(weather, time) {
-  let main_img1 = document.getElementById("main-img1");
-  let main_img2 = document.getElementById("main-img2");
+// adjusts to PST
+function convertTime(time) {
+  let hour = time.getHours();
+  hour += 16;
+  // if we receive a case of 25:00 or greater, adjust
+  if (hour > 24) {
+    hour -= 24;
+  }
+
+  return hour;
+}
+
+function loadMainIcon(weather, convertedTime) {
+  let main_img1 = document.getElementById("main-img");
 
   switch (weather) {
     case "scattered clouds":
       main_img1.src = "../assets/scatteredclouds.svg";
-      main_img2.src = "../assets/scatteredclouds.svg";
       break;
 
     case "broken clouds":
       main_img1.src = "../assets/brokencloud.svg";
-      main_img2.src = "../assets/brokencloud.svg";
       break;
 
     case "few clouds":
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedTime < 6 || convertedTime > 18) {
         main_img1.src = "../assets/fewclouds-night.svg";
-        main_img2.src = "../assets/fewclouds-day.svg";
       } else {
         main_img1.src = "../assets/clearsky.svg";
-        main_img2.src = "../assets/clearsky.svg";
       }
       break;
 
     case "mist":
       main_img1.src = "../assets/mist.svg";
-      main_img2.src = "../assets/mist.svg";
       break;
 
     case "clear sky":
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedTime < 6 || convertedTime > 18) {
         main_img1.src = "../assets/clear-night.svg";
-        main_img2.src = "../assets/clear-night.svg";
       } else {
         main_img1.src = "../assets/clearsky.svg";
-        main_img2.src = "../assets/clearsky.svg";
       }
       break;
 
     case "shower rain":
       main_img1.src = "../assets/showerrain.svg";
-      main_img2.src = "../assets/showerrain.svg";
       break;
 
     case "thunderstorm":
       main_img1.src = "../assets/showerrain.svg";
-      main_img2.src = "../assets/showerrain.svg";
       break;
 
     case "snow":
       main_img1.src = "../assets/snow.svg";
-      main_img2.src = "../assets/snow.svg";
       break;
 
     default:
-      if (time.getHours() < 6 || time.getHours > 18) {
+      if (convertedTime < 6 || convertedTime > 18) {
         main_img1.src = "../assets/rain-night.svg";
-        main_img2.src = "../assets/rain-night.svg";
       } else {
         main_img1.src = "../assets/rain-day.svg";
-        main_img2.src = "../assets/rain-day.svg";
       }
       break;
   }
 }
 
-function loadTime(time) {
-  let hour = time.getHours();
+function loadTime(convertedTime) {
+  let hour = convertedTime;
   let ampm = "AM";
 
   // adjust if necessary
-  if (time.getHours() >= 12) {
+  if (convertedTime >= 12) {
     hour -= 12;
     ampm = "PM";
+  } else if (convertedTime == 0) {
+    hour += 12;
   }
   timeOfDay = hour + ampm;
 
-  let time_web = document.getElementById("time-web");
-  let time_mobile = document.getElementById("time-mobile");
+  let time_web = document.getElementById("main-time-web");
 
   time_web.innerHTML = timeOfDay;
-  time_mobile.innerHTML = timeOfDay;
 }
 
 function loadTemperature(temperature) {
   let temp = Math.trunc(temperature);
 
-  let temperature_web = document.getElementById("temperature-web");
-  let temperature_mobile = document.getElementById("temperature-mobile");
+  let temperature_web = document.getElementById("main-temperature-web");
 
   temperature_web.innerHTML = temp + "°";
-  temperature_mobile.innerHTML = temp + "°";
 }
 
-function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+function loadFutureIcons (futureWeather, convertedFutureTime, i) {
+  let id = "main-img" + i;
+  //console.log(futureWeather);
+  //console.log(id);
+  let main_img = document.getElementById(id);
+
+  switch (futureWeather) {
+    case "scattered clouds":
+      main_img.src = "../assets/scatteredclouds.svg";
+      break;
+
+    case "broken clouds":
+      main_img.src = "../assets/brokencloud.svg";
+      break;
+
+    case "few clouds":
+      if (convertedFutureTime < 6 || convertedFutureTime > 18) {
+        main_img.src = "../assets/fewclouds-night.svg";
+      } else {
+        main_img.src = "../assets/clearsky.svg";
+      }
+      break;
+
+    case "mist":
+      main_img.src = "../assets/mist.svg";
+      break;
+
+    case "clear sky":
+      if (convertedFutureTime < 6 || convertedFutureTime > 18) {
+        main_img.src = "../assets/clear-night.svg";
+      } else {
+        main_img.src = "../assets/clearsky.svg";
+      }
+      break;
+
+    case "shower rain":
+      main_img.src = "../assets/showerrain.svg";
+      break;
+
+    case "thunderstorm":
+      main_img.src = "../assets/showerrain.svg";
+      break;
+
+    case "snow":
+      main_img.src = "../assets/snow.svg";
+      break;
+
+    default:
+      if (convertedFutureTime < 6 || convertedFutureTime > 18) {
+        main_img.src = "../assets/rain-night.svg";
+      } else {
+        main_img.src = "../assets/rain-day.svg";
+      }
+      break;
+  }
+}
+
+function loadFutureTime(futureTime, i) {
+  let hour = futureTime;
+  let ampm = "AM";
+
+  // adjust if necessary
+  if (futureTime >= 12) {
+    hour -= 12;
+    ampm = "PM";
+  }
+
+  timeOfDay = hour + ":00 " + ampm;
+  id = "time" + i;
+
+  let time = document.getElementById(id);
+
+  time.innerHTML = timeOfDay;
+}
+
+function loadFutureTemperature(futureTemperature, i) {
+  let temp = Math.trunc(futureTemperature);
+  let id = "temperature" + i;
+
+  let temperature = document.getElementById(id);
+
+  temperature.innerHTML = temp + "°";
+}
+
+function getDistanceFromLatLonInMiles(lat1,lon1,lat2,lon2) {
   var R = 3958.8; // Radius of the earth in miles
   var dLat = deg2rad(lat2-lat1);  // deg2rad below
   var dLon = deg2rad(lon2-lon1);
@@ -149,33 +230,45 @@ function makeCorsRequest() {
 
   // Load some functions into response handlers.
   xhr.onload = function() {
-      let responseStr = xhr.responseText;  // get the JSON string
-      let object = JSON.parse(responseStr);  // turn it into an object
-      console.log(JSON.stringify(object, undefined, 2));
+    let responseStr = xhr.responseText;  // get the JSON string
+    let object = JSON.parse(responseStr);  // turn it into an object
 
-      let lat1 = 38.5454;
-      let lon1 = -121.7446;
-      let lat2 = object.city.coord.lat;
-      let lon2 = object.city.coord.lon;
+    // distance from sacramento
+    let lat1 = 38.5454;
+    let lon1 = -121.7446;
+    let lat2 = object.city.coord.lat;
+    let lon2 = object.city.coord.lon;
 
-      let distance = getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2)
+    let distance = getDistanceFromLatLonInMiles(lat1,lon1,lat2,lon2)
 
-      console.log('distance ' + distance);
+    console.log('distance ' + distance);
 
-      if (distance > 150) {
-        alert('Not found');
-      } else {
-        alert('Found');
+    if (distance > 150) {
+      alert('Not found');
+    } else {
+      //console.log(object.list[0].weather[0].main);
+      let weather = object.list[0].weather[0].description;
+      let temperature = object.list[0].main.temp;
+      let time = new Date(object.list[0].dt_txt);
+      // convert time
+      let convertedTime = convertTime(time);
+
+      loadMainIcon(weather, convertedTime);
+      loadTime(convertedTime);
+      loadTemperature(temperature);
+
+      let futureDays = 5;
+      for (i = 1, count = 0; count < futureDays; i++, count++) {
+        let futureWeather = object.list[0 + i].weather[0].description;
+        let futureTemperature = object.list[0 + i].main.temp;
+        let futureTime = new Date(object.list[0 + i].dt_txt);
+        let convertedFutureTime = convertTime(futureTime);
+
+        loadFutureIcons(futureWeather, convertedFutureTime, i + 2);
+        loadFutureTime(convertedFutureTime, i);
+        loadFutureTemperature(futureTemperature, i);
       }
-
-      console.log(object.city.name);
-      console.log(object.list[0].weather[0].description);
-      console.log(object.list[0].dt_txt);
-      console.log(object.list[0].main.temp);
-
-      //var temp = object.list[0].main.temp;
-      let temp = document.getElementById("temperature-web");
-      temp.textContent = object.list[0].main.temp
+    }
   };
 
   xhr.onerror = function() {
