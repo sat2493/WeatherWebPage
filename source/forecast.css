@@ -494,6 +494,72 @@ and (max-device-width : 1024px)  {
   i.fa.fa-chevron-down {
     display: none;
   }
+  div.radar {
+    width: 280px;
+    margin-top: -130px;
+    clip-path: circle(135px at center);
+  }
+
+  #map {
+    z-index: 100;
+    filter: grayscale(100%);
+  }
+
+  #doppler_9 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_8 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_7 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_6 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_5 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_4 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_3 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_2 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_1 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #doppler_0 {
+    position: absolute;
+    z-index: 200;
+  }
+
+  #cities {
+    z-index: 300;
+    top: -0px;
+    position: absolute;
+  }
 }
 
 @media only screen

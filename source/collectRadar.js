@@ -46,11 +46,14 @@ function getTenImages() {
 
 function addTenImages() {
 	var radar = document.getElementById("radar");
+	var radar1 = document.getElementById("radar1");;
 
 	for (let i = 0; i < 10; i++) {
 		newImage = imageArray[i];
-		// insert img object into the radar div
+		// insert img object inside web div
 		radar.insertBefore(newImage, radar.childNodes[1]);
+		// insert img object inside tablet div
+		radar.insertBefore(newImage, radar1.childNodes[1]);
 	}
 }
 
