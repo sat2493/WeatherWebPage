@@ -104,17 +104,35 @@ function loadTemperature(temperature) {
   temperature_mobile.innerHTML = temp + "°";
 }
 
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 3958.8; // Radius of the earth in miles
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1);
+  var a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c; // Distance in miles
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
 // Make the actual CORS request.
 function makeCorsRequest() {
   var city = document.getElementById('search-text-box').value;
+  var api;
 
   console.log(!isNaN(city));
 
   if(isNaN(city)){ //not a number
-    var api = 'http://api.openweathermap.org/data/2.5/forecast/hourly?q=';
+    api = 'http://api.openweathermap.org/data/2.5/forecast/hourly?q=';
     console.log('city = ' + city);
   } else {
-    var api = 'http://api.openweathermap.org/data/2.5/forecast/hourly?zip=';
+    api = 'http://api.openweathermap.org/data/2.5/forecast/hourly?zip=';
     console.log('zip code = ' + city);
   }
 
@@ -135,6 +153,21 @@ function makeCorsRequest() {
       let object = JSON.parse(responseStr);  // turn it into an object
       console.log(JSON.stringify(object, undefined, 2));
 
+      let lat1 = 38.5454;
+      let lon1 = -121.7446;
+      let lat2 = object.city.coord.lat;
+      let lon2 = object.city.coord.lon;
+
+      let distance = getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2)
+
+      console.log('distance ' + distance);
+
+      if (distance > 150) {
+        alert('longer than 150 miles.');
+      } else {
+        alert('short!');
+      }
+
       console.log(object.city.name);
       console.log(object.list[0].weather[0].description);
       console.log(object.list[0].dt_txt);
@@ -143,7 +176,6 @@ function makeCorsRequest() {
       //var temp = object.list[0].main.temp;
       let temp = document.getElementById("temperature-web");
       temp.textContent = object.list[0].main.temp
-
   };
 
   xhr.onerror = function() {
