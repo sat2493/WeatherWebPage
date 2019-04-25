@@ -561,8 +561,8 @@ and (max-device-width : 1024px)  {
 
   #cities1 {
     z-index: 300;
-    top: -0px;
     position: absolute;
+    top: 165px;
   }
 }
 
