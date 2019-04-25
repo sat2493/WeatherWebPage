@@ -321,7 +321,7 @@ input[type="text"], textarea {
     width: 50%;
   }
   .time {
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .time-web {
     overflow: hidden;
