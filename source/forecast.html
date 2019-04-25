@@ -41,8 +41,11 @@
         </div>
         </div>
 
-        <div class="weather-map" style="background-color: pink;">
-          helloo
+        <div class="weather-map">
+          <div id="radar" class="radar">
+            <img id="map" src="https://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
+            <img id="cities" src="https://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
+          </div>
         </div>
     </div>
 
@@ -77,7 +80,7 @@
             <i class="fa fa-chevron-up" id="toggleThis"></i>
           </div>
 
-        <div class="weather-map" style="background-color: pink;">
+        <div class="weather-map">
           helloo
         </div>
       </div>
@@ -146,4 +149,5 @@
 
   </body>
   <script src="makeRequest.js"> </script>
+  <script src="collectRadar.js"> </script>
 </html>
