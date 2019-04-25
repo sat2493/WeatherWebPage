@@ -1,6 +1,8 @@
 html, body {
     margin: 0;
     height: 100%;
+    position: absolute;
+    flex-direction: column;
 }
 
 .web-header {
@@ -196,14 +198,14 @@ input[type="text"], textarea {
     margin-left: 0px;
   }
   #local {
-    font-size: 59px;
+    font-size: 65px;
     text-align: center;
     margin-left: 60px;
     margin-right: 60px;
   }
   #northern {
     margin-left: 20px;
-    margin-left: 65px;
+    margin-left: 80px;
     font-size: 27px;
   }
   #forecast {
@@ -213,16 +215,19 @@ input[type="text"], textarea {
   }
   .between {
     margin-top: 0px;
-    size: 1000px;
+    size: 1100px;
     height: 0px;
-    width: 650px;
-    margin-left: -100px;
+    width: 660px;
+    margin-left: -50px;
   }
   .tab-header {
     background: rgb(73, 138, 220);
     background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
     display: flex;
     flex-direction: column;
+    width: 190vw;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
   .tab-weather-search {
     display: flex;
@@ -283,6 +288,7 @@ input[type="text"], textarea {
   #search-section {
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
   }
   #search-bar {
     margin-left: 60px;
@@ -290,12 +296,13 @@ input[type="text"], textarea {
   .subheader .time-and-temperature {
     display: flex;
     flex-direction: row;
+    margin-left: 20px;
   }
   .tab-time-and-temperature {
     display: flex;
     flex-direction: column;
     flex: 0 0 40%;
-    margin-left: 70px;
+    margin-left: 100px;
   }
   i.fa.fa-chevron-up {
      font-size:100px;
@@ -307,7 +314,7 @@ input[type="text"], textarea {
       display: inline;
      font-size:100px;
      color: rgb(52, 58, 154);
-     margin-left: 190px;
+     margin-left: 220px;
      margin-top: -30px;
   }
   .subheader {
@@ -318,7 +325,7 @@ input[type="text"], textarea {
   .main-img {
     margin-right: 100px;
     margin-left: 100px;
-    width: 50%;
+    width: 20%;
   }
   .time {
     margin-top: 0px;
