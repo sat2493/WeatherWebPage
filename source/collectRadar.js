@@ -53,7 +53,7 @@ function addTenImages() {
 		// insert img object inside web div
 		radar.insertBefore(newImage, radar.childNodes[1]);
 		// insert img object inside tablet div
-		radar.insertBefore(newImage, radar1.childNodes[1]);
+		radar1.insertBefore(newImage, radar1.childNodes[1]);
 	}
 }
 

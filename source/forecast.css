@@ -500,7 +500,7 @@ and (max-device-width : 1024px)  {
     clip-path: circle(135px at center);
   }
 
-  #map {
+  #map1 {
     z-index: 100;
     filter: grayscale(100%);
   }
@@ -555,7 +555,7 @@ and (max-device-width : 1024px)  {
     z-index: 200;
   }
 
-  #cities {
+  #cities1 {
     z-index: 300;
     top: -0px;
     position: absolute;
