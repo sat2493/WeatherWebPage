@@ -13,7 +13,7 @@
 
   <body>
 
-    <div class="header">
+    <div class="web-header">
       <div class="weather-search">
 
         <div class="forecast-search">
@@ -28,7 +28,7 @@
            </div>
         </div>
 
-        <div class="time-and-temperature">
+        <div class="web-time-and-temperature">
           <div class="time">
             <p id="current-web">current</p>
             <p id="time-web">12PM</p>
@@ -39,10 +39,47 @@
           </div>
         </div>
 
-      </div>
+        </div>
 
-      <div class="weather-map" style="background-color: pink;">
-        helloo
+        <div class="weather-map" style="background-color: pink;">
+          helloo
+        </div>
+
+    </div>
+
+    <div class="tab-header">
+        <div class="forecast-search">
+           <p id="local">Local Weather Six Hour Forecast</p>
+           <p id="northern">Northern California with doppler radar</p>
+           <div id="search-section">
+             <p id="forecast">Forecast for</p>
+             <div id="search-bar">
+               <input id="search-text-box" type="text" placeholder="Davis, CA" name="search">
+               <button id="submit-button" type="submit" onClick="makeCorsRequest();">submit</button>
+             </div>
+           </div>
+        </div>
+
+      <div class="tab-weather-search">
+          <div class="tab-time-and-temperature">
+            <div class="tab-image-icon">
+              <img id="tab-main-img" src="../assets/fewclouds-day.svg" alt="Weather Icon">
+            </div>
+            <div class="tab-bottom">
+              <div class="time">
+                <p id="tab-current-web">current</p>
+                <p id="tab-time-web">12PM</p>
+              </div>
+              <hr class="time-temp-between">
+              <div class="temperature">
+                <p id="tab-temperature-web">67°</p>
+              </div>
+            </div>
+          </div>
+
+        <div class="weather-map" style="background-color: pink;">
+          helloo
+        </div>
       </div>
     </div>
 
