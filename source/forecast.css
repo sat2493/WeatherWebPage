@@ -170,7 +170,128 @@ input[type="text"], textarea {
 
 
 @media only screen and (max-width: 600px) {
-
+  .web-header {
+    display: none;
+  }
+  .subheader {
+    height: 0px;
+    background: linear-gradient(white, white);
+  }
+  .tab-header {
+    background: rgb(73, 138, 220);
+    background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+  }
+  .weather-map {
+    display: none;
+  }
+  .weather-search .time-and-temperature {
+    display: none;
+  }
+  .forecast-search {
+    margin-left: 0px;
+  }
+  #local {
+    font-size: 59px;
+    text-align: center;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  #northern {
+    margin-left: 20px;
+    margin-left: 65px;
+    font-size: 27px;
+  }
+  #forecast {
+    margin-left: 70px;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  .between {
+    height: 0px;
+    margin-top: 0px;
+  }
+  .tab-header {
+    background: rgb(73, 138, 220);
+    background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
+    display: flex;
+    flex-direction: column;
+  }
+  .tab-weather-search {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+  }
+  .web-header {
+    display: none;
+  }
+  .tab-time-and-temperature {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40%;
+    margin-left: 100px;
+  }
+  .tab-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -70px;
+    margin-left: 70px;
+  }
+  .tab-weather-search .weather-map {
+    flex: 0 0 50%;
+  }
+  .tab-weather-search #tab-main-img {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 130%;
+  }
+  #tab-current-web, #tab-time-web {
+    font-family: 'Saira Extra Condensed';
+    font-size: 35px;
+    font-weight: lighter;
+    color: white;
+    margin: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  #tab-temperature-web {
+    font-family: 'Saira Extra Condensed';
+    font-size: 85px;
+    font-weight: lighter;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .tab-weather-search .time-temp-between {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 80px;
+    margin-top: 10px;
+    border: .8px solid black;
+  }
+  #submit-button {
+    margin-left: -20px;
+  }
+  #search-section {
+    display: flex;
+    flex-direction: column;
+  }
+  #search-bar {
+    margin-left: 60px;
+  }
+  .subheader .time-and-temperature {
+    display: flex;
+    flex-direction: row;
+  }
+  .tab-time-and-temperature {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40%;
+    margin-left: 70px;
+  }
 }
 
 

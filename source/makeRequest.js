@@ -163,9 +163,9 @@
 //       console.log('distance ' + distance);
 //
 //       if (distance > 150) {
-//         alert('longer than 150 miles.');
+//         alert('Not found');
 //       } else {
-//         alert('short!');
+//         alert('Found');
 //       }
 //
 //       console.log(object.city.name);
