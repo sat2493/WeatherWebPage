@@ -96,7 +96,7 @@ input[type="text"], textarea {
 }
 
 .web-time-and-temperature .time
-#current-web, #time-web {
+#current-web, #main-time-web {
   font-family: 'Saira Extra Condensed';
   font-size: 35px;
   font-weight: lighter;
@@ -104,7 +104,7 @@ input[type="text"], textarea {
   margin: 0px;
 }
 
-.web-time-and-temperature #temperature-web {
+.web-time-and-temperature #main-temperature-web {
   font-family: 'Saira Extra Condensed';
   font-size: 85px;
   font-weight: lighter;
@@ -319,7 +319,7 @@ div.radar {
   .tab-weather-search .weather-map {
     flex: 0 0 50%;
   }
-  .tab-weather-search #tab-main-img {
+  .tab-weather-search #main-img {
     margin-right: 20px;
     margin-left: 20px;
     width: 130%;
@@ -459,7 +459,7 @@ and (max-device-width : 1024px)  {
   .tab-weather-search .weather-map {
     flex: 0 0 50%;
   }
-  .tab-weather-search #tab-main-img {
+  .tab-weather-search #main-img {
     margin-right: 20px;
     margin-left: 20px;
     width: 70%;
