@@ -14,7 +14,7 @@ html, body {
 }
 .tab-header {
   display: none;
-}#tab-current-web, #tab-time-web {
+}
 i.fa.fa-chevron-down {
   display: none;
 }
@@ -332,7 +332,6 @@ div.radar {
     margin: 0px;
     margin-left: 20px;
     margin-right: 20px;
-    width: 145vw;
   }
   #tab-temperature-web {
     font-family: 'Saira Extra Condensed';
