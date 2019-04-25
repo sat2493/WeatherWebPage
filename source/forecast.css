@@ -9,8 +9,10 @@ html, body {
   display: flex;
   flex-direction: row;
 }
-
 .tab-header {
+  display: none;
+}
+i.fa.fa-chevron-down {
   display: none;
 }
 
@@ -210,8 +212,11 @@ input[type="text"], textarea {
     margin-bottom: 20px;
   }
   .between {
-    height: 0px;
     margin-top: 0px;
+    size: 1000px;
+    height: 0px;
+    width: 650px;
+    margin-left: -100px;
   }
   .tab-header {
     background: rgb(73, 138, 220);
@@ -291,6 +296,36 @@ input[type="text"], textarea {
     flex-direction: column;
     flex: 0 0 40%;
     margin-left: 70px;
+  }
+  i.fa.fa-chevron-up {
+     font-size:100px;
+     color:white;
+     margin-left: 170px;
+     margin-top: -30px;
+  }
+  i.fa.fa-chevron-down {
+      display: inline;
+     font-size:100px;
+     color: rgb(52, 58, 154);
+     margin-left: 190px;
+     margin-top: -30px;
+  }
+  .subheader {
+    flex-direction: column;
+    margin-top: 450px;
+    margin-left: 50px;
+  }
+  .main-img {
+    margin-right: 100px;
+    margin-left: 100px;
+    width: 50%;
+  }
+  .time {
+    margin-top: 30px;
+  }
+  .time-web {
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 
@@ -379,6 +414,12 @@ and (max-device-width : 1024px)  {
     height: 80px;
     margin-top: 10px;
     border: .8px solid black;
+  }
+  i.fa.fa-chevron-up {
+    display: none;
+  }
+  i.fa.fa-chevron-down {
+    display: none;
   }
 }
 
