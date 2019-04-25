@@ -120,8 +120,8 @@ function loadTemperature(temperature) {
 
 function loadFutureIcons (futureWeather, convertedFutureTime, i) {
   let id = "main-img" + i;
-  console.log(futureWeather);
-  console.log(id);
+  //console.log(futureWeather);
+  //console.log(id);
   let main_img = document.getElementById(id);
 
   switch (futureWeather) {
@@ -219,7 +219,7 @@ function makeCorsRequest() {
   xhr.onload = function() {
       let responseStr = xhr.responseText;  // get the JSON string
       let object = JSON.parse(responseStr);  // turn it into an object
-      console.log(object.list[0].weather[0].main);
+      //console.log(object.list[0].weather[0].main);
       let weather = object.list[0].weather[0].description;
       let temperature = object.list[0].main.temp;
       let time = new Date(object.list[0].dt_txt);

@@ -114,10 +114,54 @@ div.radar {
   z-index: 100;
 }
 
-#blue {
-  z-index: 200;
-  top: -0px;
+#doppler_9 {
   position: absolute;
+  z-index: 200;
+}
+
+#doppler_8 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_7 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_6 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_5 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_4 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_3 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_2 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_1 {
+  position: absolute;
+  z-index: 200;
+}
+
+#doppler_0 {
+  position: absolute;
+  z-index: 200;
 }
 
 #cities {

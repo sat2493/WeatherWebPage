@@ -59,9 +59,8 @@
       </section>
 
       <section class="top-right">
-        <div class="radar">
+        <div id="radar" class="radar">
           <img id="map" src="https://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
-          <img id="blue" src="https://radar.weather.gov/ridge/RadarImg/N0R/DAX_N0R_0.gif">
           <img id="cities" src="https://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
         </div>
       </section>
@@ -111,4 +110,6 @@
   </body>
   <script src="makeRequest.js"> </script>
   <script src="action.js"> </script>
+  <!-- execute the Javascript for this page -->
+  <script src="collectPastDoppler.js"></script>
 </html>
