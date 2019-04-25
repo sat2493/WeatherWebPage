@@ -427,7 +427,7 @@ and (max-device-width : 1024px)  {
     margin-left: 35px;
   }
   .between {
-    height: 540px;
+    height: 940px;
     margin-top: 0px;
   }
   .tab-header {
@@ -435,7 +435,7 @@ and (max-device-width : 1024px)  {
     background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
     display: flex;
     flex-direction: column;
-    width: 145vw;
+    width: 155vw;
   }
   .tab-weather-search {
     display: flex;
@@ -456,9 +456,12 @@ and (max-device-width : 1024px)  {
     flex-direction: row;
     align-items: center;
     margin-top: -70px;
+    margin-left: 100px;
   }
   .tab-weather-search .weather-map {
     flex: 0 0 50%;
+    margin-left: 150px;
+    margin-top: 50px;
   }
   .tab-weather-search #main-img {
     margin-right: 20px;
@@ -567,7 +570,7 @@ and (max-device-width : 1024px)  {
 and (min-device-width : 1024px)
 and (max-device-width : 1366px)  {
   .between {
-    height: 720px;
+    height: 1230px;
     margin-top: 0px;
   }
 }
