@@ -14,16 +14,22 @@ html, body {
   flex: 0 0 60%;
 }
 
+.forecast-search {
+  margin-left: 100px;
+}
+
 #local {
   font-family: 'IBM Plex Sans', sans-serif;
   color: white;
   font-size: 45px;
+  margin-bottom: 0px;
 }
 
 #northern {
   font-family: 'IBM Plex Sans', sans-serif;
   color: rgb(52, 58, 154);
   font-size: 33px;
+  margin-top: 0px;
 }
 
 #forecast {
@@ -44,6 +50,8 @@ html, body {
   font-weight: lighter;
   width: 305px;
   height: 30px;
+  margin-right: 15px;
+  margin-left: 10px;
 }
 
 ::placeholder { color: white; text-indent: 20px;}
@@ -59,18 +67,23 @@ input[type="text"], textarea {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 16px;
   width: 80px;
-  height: 30px;
+  height: 32px;
+  border: none;
+  color: white;
 }
 
-.time-and-temperature {
+.weather-search .time-and-temperature {
   display: flex;
   flex-direction: row;
+  margin-left: 150px;
+  align-items: center;
+  margin-top: -40px;
 }
 
 #main-img {
   margin-right: 20px;
   margin-left: 20px;
-  width: 10%;
+  width: 30%;
 }
 
 .time-and-temperature .time
@@ -79,6 +92,7 @@ input[type="text"], textarea {
   font-size: 35px;
   font-weight: lighter;
   color: white;
+  margin: 0px;
 }
 
 .time-and-temperature #temperature-web {
@@ -104,6 +118,11 @@ input[type="text"], textarea {
    border: none;
 } */
 
+.subheader {
+  height: 100px;
+  background: linear-gradient(lightgray, white);
+}
+
 .subheader .time-and-temperature {
   display: flex;
   flex-direction: column;
@@ -119,4 +138,45 @@ input[type="text"], textarea {
   font-family: 'Saira Extra Condensed';
   font-size: 75px;
   font-weight: lighter;
+  margin: 0px;
+  padding: 0px;
+}
+
+.between {
+  margin-left: -50px;
+  margin-right: -50px;
+  height: 300px;
+  margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+
+
 }
