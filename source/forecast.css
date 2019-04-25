@@ -14,7 +14,7 @@ html, body {
 }
 .tab-header {
   display: none;
-}
+}#tab-current-web, #tab-time-web {
 i.fa.fa-chevron-down {
   display: none;
 }
@@ -324,7 +324,7 @@ div.radar {
     margin-left: 20px;
     width: 130%;
   }
-  #tab-current-web, #tab-time-web {
+  #tab-current-web, #tab-time-web-0 {
     font-family: 'Saira Extra Condensed';
     font-size: 35px;
     font-weight: lighter;
@@ -332,6 +332,7 @@ div.radar {
     margin: 0px;
     margin-left: 20px;
     margin-right: 20px;
+    width: 145vw;
   }
   #tab-temperature-web {
     font-family: 'Saira Extra Condensed';
@@ -435,6 +436,7 @@ and (max-device-width : 1024px)  {
     background: linear-gradient(rgb(73, 138, 220), rgb(110, 83, 157));
     display: flex;
     flex-direction: column;
+    width: 145vw;
   }
   .tab-weather-search {
     display: flex;
@@ -464,7 +466,7 @@ and (max-device-width : 1024px)  {
     margin-left: 20px;
     width: 70%;
   }
-  #tab-current-web, #tab-time-web {
+  #tab-current-web, #tab-time-web-0 {
     font-family: 'Saira Extra Condensed';
     font-size: 35px;
     font-weight: lighter;
