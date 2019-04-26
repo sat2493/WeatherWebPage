@@ -298,6 +298,54 @@ function makeCorsRequest() {
   xhr.send();
 }
 
+function loadPage() {
+  let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=Davis,CA,US&units=imperial&APPID=2b950a4430a34b6d1dfa6010d8599df8";
+
+  let xhr = createCORSRequest('GET', url);
+
+  // checking if browser does CORS
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Load some functions into response handlers.
+  xhr.onload = function() {
+    let responseStr = xhr.responseText;  // get the JSON string
+    let object = JSON.parse(responseStr);  // turn it into an object
+
+    //console.log(object.list[0].weather[0].main);
+    let weather = object.list[0].weather[0].description;
+    let temperature = object.list[0].main.temp;
+    let time = new Date(object.list[0].dt_txt);
+    // convert time
+    let convertedTime = convertTime(time);
+
+    loadMainIcon(weather, convertedTime);
+    loadTime(convertedTime);
+    loadTemperature(temperature);
+
+    let futureDays = 5;
+    for (i = 1, count = 0; count < futureDays; i++, count++) {
+      let futureWeather = object.list[0 + i].weather[0].description;
+      let futureTemperature = object.list[0 + i].main.temp;
+      let futureTime = new Date(object.list[0 + i].dt_txt);
+      let convertedFutureTime = convertTime(futureTime);
+
+      loadFutureIcons(futureWeather, convertedFutureTime, i);
+      loadFutureTime(convertedFutureTime, i);
+      loadFutureTemperature(futureTemperature, i);
+    }
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  // Actually send request to server
+  xhr.send();
+}
+
 var mintop = 5;
 var maxtop = -950;
 var time = 1000;
@@ -306,6 +354,7 @@ var toggled = false;
 
 // from: https://stackoverflow.com/questions/3795481/javascript-slidedown-without-jquery
 window.onload = function() {
+  loadPage();
   var upButton = document.getElementById('toggleThis');
   var downButton = document.getElementById('toggleThat');
   var top = document.getElementById('body');
@@ -351,3 +400,5 @@ window.onload = function() {
 
   };
 };
+
+makeCorsRequest();
