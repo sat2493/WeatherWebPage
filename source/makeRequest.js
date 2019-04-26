@@ -99,7 +99,7 @@ function loadTime(convertedTime) {
   } else if (convertedTime == 0) {
     hour += 12;
   }
-  timeOfDay = hour + ampm;
+  let timeOfDay = hour + ampm;
 
   let time_web = document.getElementById("main-time-web");
   let time_web1 = document.getElementById("tab-time-web-0");
@@ -180,13 +180,15 @@ function loadFutureTime(futureTime, i) {
   let ampm = "AM";
 
   // adjust if necessary
-  if (futureTime >= 12) {
+  if (futureTime > 12) {
     hour -= 12;
     ampm = "PM";
+  } else if (futureTime == 0) {
+    hour += 12;
   }
 
-  timeOfDay = hour + ":00 " + ampm;
-  id = "temp" + i;
+  let timeOfDay = hour + ":00 " + ampm;
+  let id = "temp" + i;
 
   let time = document.getElementById(id);
 
