@@ -509,52 +509,62 @@ and (max-device-width : 1024px)  {
     filter: grayscale(100%);
   }
 
-  #doppler_9 {
+  #doppler_10 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_8 {
+  #doppler_11 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_7 {
+  #doppler_12 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_6 {
+  #doppler_13 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_5 {
+  #doppler_14 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_4 {
+  #doppler_15 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_3 {
+  #doppler_16 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_2 {
+  #doppler_17 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_1 {
+  #doppler_18 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
 
-  #doppler_0 {
+  #doppler_19 {
+    display: inline;
     position: absolute;
     z-index: 200;
   }
